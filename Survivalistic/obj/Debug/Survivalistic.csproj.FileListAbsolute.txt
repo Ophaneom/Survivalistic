@@ -1,0 +1,5 @@
+C:\Users\Gustavo\source\repos\Survivalistic\Survivalistic\bin\Debug\Survivalistic.dll
+C:\Users\Gustavo\source\repos\Survivalistic\Survivalistic\bin\Debug\Survivalistic.pdb
+C:\Users\Gustavo\source\repos\Survivalistic\Survivalistic\obj\Debug\Survivalistic.csproj.CoreCompileInputs.cache
+C:\Users\Gustavo\source\repos\Survivalistic\Survivalistic\obj\Debug\Survivalistic.dll
+C:\Users\Gustavo\source\repos\Survivalistic\Survivalistic\obj\Debug\Survivalistic.pdb
