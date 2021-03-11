@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{05B87AF4-D09E-45FD-B93E-C3B1A813B553}</ProjectGuid>
+    <ProjectGuid>{C8C0195A-2291-454E-A66D-8FF396CB0622}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Survivalistic</RootNamespace>
@@ -48,10 +48,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModConfig.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Data.cs" />
+    <Compile Include="Framework\Bars\BarsDatabase.cs" />
+    <Compile Include="Framework\Bars\BarsInformations.cs" />
+    <Compile Include="Framework\Bars\BarsPosition.cs" />
+    <Compile Include="Framework\Bars\BarsUpdate.cs" />
+    <Compile Include="Framework\Bars\BarsWarnings.cs" />
+    <Compile Include="Framework\Common\Interaction.cs" />
+    <Compile Include="Framework\Common\Debugger.cs" />
+    <Compile Include="Framework\Databases\Foods.cs" />
+    <Compile Include="Framework\Databases\Tools.cs" />
+    <Compile Include="Framework\Networking\NetController.cs" />
+    <Compile Include="Framework\Common\Textures.cs" />
     <Compile Include="ModEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="manifest.json" />
