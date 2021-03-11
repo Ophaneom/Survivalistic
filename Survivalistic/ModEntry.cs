@@ -30,6 +30,7 @@ namespace Survivalistic
 
             helper.Events.GameLoop.UpdateTicked += OnUpdate;
             helper.Events.GameLoop.TimeChanged += OnTimeChanged;
+            helper.Events.GameLoop.DayStarted += OnDayStarted;
             helper.Events.GameLoop.DayEnding += OnDayEnding;
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
             helper.Events.Multiplayer.PeerConnected += OnPlayerConnected;
@@ -49,6 +50,11 @@ namespace Survivalistic
             BarsUpdate.UpdateBarsInformation();
             BarsUpdate.CalculatePercentage();
             NetController.Sync();
+        }
+
+        private void OnDayStarted(object sender, DayStartedEventArgs e)
+        {
+
         }
 
         private void OnDayEnding(object sender, DayEndingEventArgs e)

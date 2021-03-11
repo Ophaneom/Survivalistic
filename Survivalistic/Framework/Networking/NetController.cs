@@ -15,8 +15,8 @@ namespace Survivalistic.Framework.Networking
         {
             if (Context.IsMainPlayer)
             {
-                Data _data = Helper.Data.ReadJsonFile<Data>($"Data/{Game1.player.farmName}/{player_id}.json") ?? new Data();
-                Helper.Data.WriteJsonFile($"Data/{Game1.player.farmName}/{player_id}.json", _data);
+                Data _data = Helper.Data.ReadSaveData<Data>($"{player_id}") ?? new Data();
+                Helper.Data.WriteSaveData($"{player_id}", _data);
 
                 Debugger.Log($"Sending important data to farmhand {player_id}.", "Trace");
                 Helper.Multiplayer.SendMessage(
@@ -35,8 +35,8 @@ namespace Survivalistic.Framework.Networking
                 Debugger.Log($"Sending important data to all farmhands.", "Trace");
                 foreach (Farmer farmer in Game1.getOnlineFarmers())
                 {
-                    Data _data = Helper.Data.ReadJsonFile<Data>($"Data/{Game1.player.farmName}/{farmer.UniqueMultiplayerID}.json") ?? new Data();
-                    Helper.Data.WriteJsonFile($"Data/{Game1.player.farmName}/{farmer.UniqueMultiplayerID}.json", _data);
+                    Data _data = Helper.Data.ReadSaveData<Data>($"{farmer.UniqueMultiplayerID}") ?? new Data();
+                    Helper.Data.WriteSaveData($"{farmer.UniqueMultiplayerID}", _data);
 
                     Debugger.Log($"Sending important data to farmhand {farmer.UniqueMultiplayerID}.", "Trace");
                     Helper.Multiplayer.SendMessage(
@@ -54,8 +54,8 @@ namespace Survivalistic.Framework.Networking
             if (Context.IsMainPlayer)
             {
                 Debugger.Log($"Saving host data.", "Trace");
-                Helper.Data.WriteJsonFile($"Data/{Game1.player.farmName}/{Game1.player.UniqueMultiplayerID}.json", ModEntry.data);
-                ModEntry.data = Helper.Data.ReadJsonFile<Data>($"Data/{Game1.player.farmName}/{Game1.player.UniqueMultiplayerID}.json") ?? new Data();
+                Helper.Data.WriteSaveData($"{Game1.player.UniqueMultiplayerID}", ModEntry.data);
+                ModEntry.data = Helper.Data.ReadSaveData<Data>($"{Game1.player.UniqueMultiplayerID}") ?? new Data();
                 BarsUpdate.CalculatePercentage();
             }
             else
@@ -78,14 +78,13 @@ namespace Survivalistic.Framework.Networking
                 ModEntry.data = e.ReadAs<Data>();
                 BarsUpdate.CalculatePercentage();
                 Debugger.Log("Received important data from host.", "Trace");
-                Helper.Data.WriteJsonFile($"Data/{Game1.player.farmName}/{Game1.player.UniqueMultiplayerID}.json", ModEntry.data);
             }
 
             if (Context.IsMainPlayer && e.FromModID == Manifest.UniqueID && e.Type == "SaveDataToHost")
             {
                 Data _data = e.ReadAs<Data>();
                 Debugger.Log($"Received important data from player {e.FromPlayerID}.", "Trace");
-                Helper.Data.WriteJsonFile($"Data/{Game1.player.farmName}/{e.FromPlayerID}.json", _data);
+                Helper.Data.WriteSaveData($"{e.FromPlayerID}", _data);
             }
         }
     }

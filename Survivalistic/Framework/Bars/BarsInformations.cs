@@ -4,8 +4,6 @@ namespace Survivalistic.Framework.Bars
 {
     public class BarsInformations
     {
-        private static Data data = ModEntry.data;
-
         public static float hunger_percentage;
         public static float thirst_percentage;
 
@@ -14,8 +12,8 @@ namespace Survivalistic.Framework.Bars
 
         public static void ResetStatus()
         {
-            data.actual_hunger = data.max_hunger;
-            data.actual_thirst = data.max_thirst;
+            ModEntry.data.actual_hunger = ModEntry.data.max_hunger;
+            ModEntry.data.actual_thirst = ModEntry.data.max_thirst;
 
             BarsUpdate.CalculatePercentage();
         }

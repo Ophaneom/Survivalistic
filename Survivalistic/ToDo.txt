@@ -1,0 +1,2 @@
+﻿Adjust reset status while day resetted
+Add low hunger and thirst message
