@@ -7,5 +7,8 @@
 
         public float max_hunger { get; set; } = 100;
         public float max_thirst { get; set; } = 100;
+
+        public float initial_hunger { get; set; } = 100;
+        public float initial_thirst { get; set; } = 100;
     }
 }

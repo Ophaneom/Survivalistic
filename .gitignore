@@ -259,3 +259,9 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+Survivalistic/obj/Debug/Survivalistic.csproj.FileListAbsolute.txt
+Survivalistic/obj/Debug/Survivalistic.dll
+Survivalistic/obj/Debug/Survivalistic.pdb
+Survivalistic/bin/Debug/Survivalistic.pdb
+Survivalistic/bin/Debug/Survivalistic.dll
+Survivalistic/bin/Debug/Survivalistic 1.0.0.zip

@@ -1,2 +1,4 @@
 ﻿Adjust reset status while day resetted
 Add low hunger and thirst message
+Adjust velocity to get from config to data
+Add language translation

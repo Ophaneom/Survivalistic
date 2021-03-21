@@ -18,7 +18,7 @@ namespace Survivalistic
     public class ModEntry : Mod
     {
         public static ModEntry instance;
-        public static Data data;
+        internal static Data data;
         public static Config config;
 
         public override void Entry(IModHelper helper)
@@ -30,8 +30,6 @@ namespace Survivalistic
 
             helper.Events.GameLoop.UpdateTicked += OnUpdate;
             helper.Events.GameLoop.TimeChanged += OnTimeChanged;
-            helper.Events.GameLoop.DayStarted += OnDayStarted;
-            helper.Events.GameLoop.DayEnding += OnDayEnding;
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
             helper.Events.Multiplayer.PeerConnected += OnPlayerConnected;
             helper.Events.Multiplayer.ModMessageReceived += OnMessageReceived;
@@ -52,19 +50,9 @@ namespace Survivalistic
             NetController.Sync();
         }
 
-        private void OnDayStarted(object sender, DayStartedEventArgs e)
-        {
-
-        }
-
-        private void OnDayEnding(object sender, DayEndingEventArgs e)
-        {
-            BarsInformations.ResetStatus();
-            NetController.Sync();
-        }
-
         private void OnSaveLoaded(object sender, SaveLoadedEventArgs e)
         {
+
             NetController.Sync();
             BarsPosition.SetBarsPosition();
             BarsUpdate.CalculatePercentage();
