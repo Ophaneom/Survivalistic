@@ -49,6 +49,7 @@ namespace Survivalistic.Framework.Common
                 if (already_using_tool)
                 {
                     already_using_tool = false;
+                    ModEntry.instance.Monitor.Log($"Start decrease, tool: {tool_used_name}", LogLevel.Info);
                     DecreaseStatus(tool_used_name);
                 }
             }
@@ -56,8 +57,7 @@ namespace Survivalistic.Framework.Common
 
         private static void IncreaseStatus(string food_eated)
         {
-            string food_status_string;
-            if (Foods.GetFoodDatabase().TryGetValue(food_eated, out food_status_string))
+            if (Foods.GetFoodDatabase().TryGetValue(food_eated, out string food_status_string))
             {
                 List<string> food_status = food_status_string.Split('/').ToList();
 
@@ -79,13 +79,12 @@ namespace Survivalistic.Framework.Common
 
         private static void DecreaseStatus(string tool_used)
         {
-            string tool_status_string;
-            if (Foods.GetFoodDatabase().TryGetValue(tool_used, out tool_status_string))
+            if (Tools.GetToolDatabase().TryGetValue(tool_used, out string tool_status_string))
             {
                 List<string> tool_status = tool_status_string.Split('/').ToList();
 
-                if (ModEntry.data.actual_hunger > 0) ModEntry.data.actual_hunger -= float.Parse(tool_status[0]);
-                if (ModEntry.data.actual_thirst > 0) ModEntry.data.actual_thirst -= float.Parse(tool_status[1]);
+                if (ModEntry.data.actual_hunger >= 0) ModEntry.data.actual_hunger -= float.Parse(tool_status[0]);
+                if (ModEntry.data.actual_thirst >= 0) ModEntry.data.actual_thirst -= float.Parse(tool_status[1]);
 
                 BarsInformations.NormalizeStatus();
             }
