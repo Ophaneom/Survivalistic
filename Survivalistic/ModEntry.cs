@@ -1,8 +1,5 @@
 ﻿using StardewModdingAPI;
 using StardewModdingAPI.Events;
-using StardewValley;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Survivalistic.Framework.Bars;
 using Survivalistic.Framework.Common;
 using Survivalistic.Framework.Networking;

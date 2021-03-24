@@ -60,7 +60,6 @@ namespace Survivalistic.Framework.Bars
                     BarsDatabase.right_side = false;
                     break;
 
-                //Sets the position to a custom position
                 case "custom":
                     barPosition.X = ModEntry.config.bars_custom_x;
                     barPosition.X = ModEntry.config.bars_custom_y;

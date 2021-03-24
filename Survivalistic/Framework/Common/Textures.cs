@@ -15,6 +15,5 @@ namespace Survivalistic.Framework.Common
             thirst_sprite = ModEntry.instance.Helper.Content.Load<Texture2D>("Assets/Bars/Thirst_Sprite.png", ContentSource.ModFolder);
             filler_sprite = ModEntry.instance.Helper.Content.Load<Texture2D>("Assets/Bars/Filler_Sprite.png", ContentSource.ModFolder);
         }
-
     }
 }
