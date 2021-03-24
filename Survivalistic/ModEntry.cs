@@ -45,6 +45,7 @@ namespace Survivalistic
             BarsUpdate.UpdateBarsInformation();
             BarsUpdate.CalculatePercentage();
             BarsWarnings.VerifyStatus();
+            Penalty.VerifyPenalty();
             NetController.Sync();
         }
 
