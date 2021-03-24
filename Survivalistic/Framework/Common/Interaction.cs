@@ -49,7 +49,6 @@ namespace Survivalistic.Framework.Common
                 if (already_using_tool)
                 {
                     already_using_tool = false;
-                    ModEntry.instance.Monitor.Log($"Start decrease, tool: {tool_used_name}", LogLevel.Info);
                     DecreaseStatus(tool_used_name);
                 }
             }
@@ -72,8 +71,8 @@ namespace Survivalistic.Framework.Common
                 float hunger_diff = ModEntry.data.actual_hunger - last_hunger;
                 float thirst_diff = ModEntry.data.actual_thirst - last_thirst;
 
-                if (hunger_diff > 0) Game1.addHUDMessage(new HUDMessage($"Hunger + {hunger_diff}", 4));
-                if (thirst_diff > 0) Game1.addHUDMessage(new HUDMessage($"Thirst + {thirst_diff}", 4));
+                if (hunger_diff > 0) Game1.addHUDMessage(new HUDMessage($"Hunger + {(int)hunger_diff}", 4));
+                if (thirst_diff > 0) Game1.addHUDMessage(new HUDMessage($"Thirst + {(int)thirst_diff}", 4));
             }
         }
 

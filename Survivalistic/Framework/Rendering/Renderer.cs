@@ -24,15 +24,19 @@ namespace Survivalistic.Framework.Rendering
         
             if (BarsDatabase.render_numerical_hunger)
             {
-                string information = $"{ModEntry.data.actual_hunger}/{ModEntry.data.max_hunger}";
-                Vector2 textsize = Game1.dialogueFont.MeasureString(information);
+                string information = $"{(int)ModEntry.data.actual_hunger}/{(int)ModEntry.data.max_hunger}";
+                Vector2 text_size = Game1.dialogueFont.MeasureString(information);
+                Vector2 text_position;
+                if (BarsDatabase.right_side) text_position = new Vector2(-12, text_size.X);
+                else text_position = new Vector2(12 + Textures.hunger_sprite.Width * 4, 0);
+
                 Game1.spriteBatch.DrawString(
                     Game1.dialogueFont,
                     information,
-                    new Vector2(BarsPosition.barPosition.X - 11, BarsPosition.barPosition.Y - 240 + ((Textures.hunger_sprite.Height * 4) / 4) + 9),
+                    new Vector2(BarsPosition.barPosition.X + text_position.X, BarsPosition.barPosition.Y - 240 + ((Textures.hunger_sprite.Height * 4) / 4) + 8),
                     Color.White,
                     0f,
-                    new Vector2(textsize.X, 0),
+                    new Vector2(text_position.Y, 0),
                     1,
                     SpriteEffects.None,
                     0f);
@@ -40,15 +44,19 @@ namespace Survivalistic.Framework.Rendering
 
             if (BarsDatabase.render_numerical_thirst)
             {
-                string information = $"{ModEntry.data.actual_thirst}/{ModEntry.data.max_thirst}";
-                Vector2 textsize = Game1.dialogueFont.MeasureString(information);
+                string information = $"{(int)ModEntry.data.actual_thirst}/{(int)ModEntry.data.max_thirst}";
+                Vector2 text_size = Game1.dialogueFont.MeasureString(information);
+                Vector2 text_position;
+                if (BarsDatabase.right_side) text_position = new Vector2(-12, text_size.X);
+                else text_position = new Vector2(12 + Textures.hunger_sprite.Width * 4, 0);
+
                 Game1.spriteBatch.DrawString(
                     Game1.dialogueFont,
                     information,
-                    new Vector2(BarsPosition.barPosition.X - 60 - 11, BarsPosition.barPosition.Y - 240 + ((Textures.hunger_sprite.Height * 4) / 4) + 9),
+                    new Vector2(BarsPosition.barPosition.X - 60 + text_position.X, BarsPosition.barPosition.Y - 240 + ((Textures.hunger_sprite.Height * 4) / 4) + 8),
                     Color.White,
                     0f,
-                    new Vector2(textsize.X, 0),
+                    new Vector2(text_position.Y, 0),
                     1,
                     SpriteEffects.None,
                     0f);

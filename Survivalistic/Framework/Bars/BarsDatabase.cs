@@ -7,5 +7,7 @@
 
         public static bool render_numerical_hunger = false;
         public static bool render_numerical_thirst = false;
+
+        public static bool right_side = false;
     }
 }
