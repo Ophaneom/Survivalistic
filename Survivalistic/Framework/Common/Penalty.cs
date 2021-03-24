@@ -24,11 +24,33 @@ namespace Survivalistic.Framework.Common
         public static void DealDamage()
         {
             if (!Context.IsWorldReady) return;
+            bool _applying_health_damage = false;
 
-            if (ModEntry.data.actual_hunger <= 0 || ModEntry.data.actual_thirst <= 0)
+            if (ModEntry.data.actual_hunger <= 0)
             {
-                if (Game1.player.stamina > 0) Game1.player.stamina -= 5;
-                else Game1.player.health -= 5;
+                if (Game1.player.stamina > 0) Game1.player.stamina -= 15;
+                else
+                {
+                    Game1.player.health -= 10;
+                    _applying_health_damage = true;
+                }
+                Buffs.SetBuff("Hunger");
+            }
+            if (ModEntry.data.actual_thirst <= 0)
+            {
+                if (Game1.player.stamina > 0) Game1.player.stamina -= 15;
+                else
+                {
+                    Game1.player.health -= 10;
+                    _applying_health_damage = true;
+                }
+                Buffs.SetBuff("Thirsty");
+            }
+
+            if (_applying_health_damage)
+            {
+                Game1.player.checkForExhaustion(Game1.player.Stamina);
+                Buffs.SetBuff("Fainting");
             }
         }
     }

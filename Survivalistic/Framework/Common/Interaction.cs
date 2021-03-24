@@ -67,7 +67,6 @@ namespace Survivalistic.Framework.Common
                 if (ModEntry.data.actual_thirst < ModEntry.data.max_thirst) ModEntry.data.actual_thirst += Int32.Parse(food_status[1]);
 
                 BarsInformations.NormalizeStatus();
-                Penalty.VerifyPenalty();
 
                 float hunger_diff = ModEntry.data.actual_hunger - last_hunger;
                 float thirst_diff = ModEntry.data.actual_thirst - last_thirst;
@@ -86,9 +85,9 @@ namespace Survivalistic.Framework.Common
                 if (ModEntry.data.actual_hunger >= 0) ModEntry.data.actual_hunger -= float.Parse(tool_status[0]) * BarsDatabase.tool_use_multiplier;
                 if (ModEntry.data.actual_thirst >= 0) ModEntry.data.actual_thirst -= float.Parse(tool_status[1]) * BarsDatabase.tool_use_multiplier;
 
+                Penalty.VerifyPenalty();
                 BarsInformations.NormalizeStatus();
                 BarsWarnings.VerifyStatus();
-                Penalty.VerifyPenalty();
             }
         }
     }
