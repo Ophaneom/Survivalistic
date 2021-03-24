@@ -1,4 +1,5 @@
 ﻿using StardewValley;
+using StardewModdingAPI;
 using Microsoft.Xna.Framework;
 
 namespace Survivalistic.Framework.Bars
@@ -7,11 +8,16 @@ namespace Survivalistic.Framework.Bars
     {
         public static Vector2 barPosition;
 
-        private static Vector2 sizeUI = new Vector2(Game1.uiViewport.Width, Game1.uiViewport.Height);
-        private static string current_location = Game1.player.currentLocation.Name;
+        private static Vector2 sizeUI;
+        private static string current_location;
 
         public static void SetBarsPosition()
         {
+            if (!Context.IsWorldReady) return;
+
+            sizeUI = new Vector2(Game1.uiViewport.Width, Game1.uiViewport.Height);
+            current_location = Game1.player.currentLocation.Name;
+
             switch (ModEntry.config.bars_position)
             {
                 case "bottom-right":

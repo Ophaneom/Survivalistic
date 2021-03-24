@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StardewModdingAPI;
-using StardewModdingAPI.Events;
 using StardewValley;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Survivalistic.Framework;
 using Survivalistic.Framework.Bars;
-using Survivalistic.Framework.Common;
-using Survivalistic.Framework.Networking;
 using Survivalistic.Framework.Databases;
 
 namespace Survivalistic.Framework.Common
@@ -75,13 +67,13 @@ namespace Survivalistic.Framework.Common
                 if (ModEntry.data.actual_hunger < ModEntry.data.max_hunger) ModEntry.data.actual_hunger += Int32.Parse(food_status[0]);
                 if (ModEntry.data.actual_thirst < ModEntry.data.max_thirst) ModEntry.data.actual_thirst += Int32.Parse(food_status[1]);
 
+                BarsInformations.NormalizeStatus();
+
                 float hunger_diff = ModEntry.data.actual_hunger - last_hunger;
                 float thirst_diff = ModEntry.data.actual_thirst - last_thirst;
 
                 if (hunger_diff > 0) Game1.addHUDMessage(new HUDMessage($"Hunger + {hunger_diff}", 4));
                 if (thirst_diff > 0) Game1.addHUDMessage(new HUDMessage($"Thirst + {thirst_diff}", 4));
-
-                BarsInformations.NormalizeStatus();
             }
         }
 

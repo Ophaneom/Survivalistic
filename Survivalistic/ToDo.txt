@@ -1,4 +1,3 @@
-﻿Adjust reset status while day resetted
-Add low hunger and thirst message
-Adjust velocity to get from config to data
-Add language translation
+﻿Fix multiplayer problems
+Fix tool use bug
+Finish databases

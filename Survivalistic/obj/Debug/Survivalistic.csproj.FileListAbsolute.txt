@@ -8,4 +8,3 @@ D:\Git Repositorios\Survivalistic\Survivalistic\bin\Debug\Survivalistic.pdb
 D:\Git Repositorios\Survivalistic\Survivalistic\obj\Debug\Survivalistic.csproj.CoreCompileInputs.cache
 D:\Git Repositorios\Survivalistic\Survivalistic\obj\Debug\Survivalistic.dll
 D:\Git Repositorios\Survivalistic\Survivalistic\obj\Debug\Survivalistic.pdb
-D:\Git Repositorios\Survivalistic\Survivalistic\obj\Debug\Survivalistic.csprojAssemblyReference.cache
