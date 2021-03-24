@@ -44,6 +44,7 @@ namespace Survivalistic
         {
             BarsUpdate.UpdateBarsInformation();
             BarsUpdate.CalculatePercentage();
+            BarsWarnings.VerifyStatus();
             NetController.Sync();
         }
 
@@ -53,6 +54,7 @@ namespace Survivalistic
             NetController.Sync();
             BarsPosition.SetBarsPosition();
             BarsUpdate.CalculatePercentage();
+            BarsWarnings.VerifyStatus();
         }
 
         private void OnPlayerConnected(object sender, PeerConnectedEventArgs e)

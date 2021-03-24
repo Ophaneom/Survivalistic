@@ -86,6 +86,7 @@ namespace Survivalistic.Framework.Common
                 if (ModEntry.data.actual_thirst >= 0) ModEntry.data.actual_thirst -= float.Parse(tool_status[1]);
 
                 BarsInformations.NormalizeStatus();
+                BarsWarnings.VerifyStatus();
             }
         }
     }
