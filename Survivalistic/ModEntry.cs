@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Survivalistic.Framework.Bars;
 using Survivalistic.Framework.Common;
 using Survivalistic.Framework.Networking;
+using Survivalistic.Framework.Rendering;
 
 namespace Survivalistic
 {
@@ -27,7 +28,7 @@ namespace Survivalistic
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
             helper.Events.Multiplayer.PeerConnected += OnPlayerConnected;
             helper.Events.Multiplayer.ModMessageReceived += OnMessageReceived;
-            helper.Events.Display.RenderingHud += OnRenderingHud;
+            helper.Events.Display.RenderingHud += Renderer.OnRenderingHud;
         }
 
         private void OnUpdate(object sender, UpdateTickedEventArgs e)
@@ -60,15 +61,6 @@ namespace Survivalistic
         private void OnMessageReceived(object sender, ModMessageReceivedEventArgs e)
         {
             NetController.OnMessageReceived(e);
-        }
-
-        private void OnRenderingHud(object sender, RenderingHudEventArgs e)
-        {
-            e.SpriteBatch.Draw(Textures.hunger_sprite, new Rectangle((int)BarsPosition.barPosition.X, (int)BarsPosition.barPosition.Y - 240, Textures.hunger_sprite.Width * 4, Textures.hunger_sprite.Height * 4), Color.White);
-            e.SpriteBatch.Draw(Textures.thirst_sprite, new Rectangle((int)BarsPosition.barPosition.X - 60, (int)BarsPosition.barPosition.Y - 240, Textures.thirst_sprite.Width * 4, Textures.thirst_sprite.Height * 4), Color.White);
-
-            e.SpriteBatch.Draw(Textures.filler_sprite, new Vector2(BarsPosition.barPosition.X + 36, BarsPosition.barPosition.Y - 25), new Rectangle(0, 0, Textures.filler_sprite.Width * 4, (int)BarsInformations.hunger_percentage), BarsInformations.hunger_color, 3.138997f, new Vector2(0.5f, 0.5f), 1f, SpriteEffects.None, 1f);
-            e.SpriteBatch.Draw(Textures.filler_sprite, new Vector2(BarsPosition.barPosition.X - 24, BarsPosition.barPosition.Y - 25), new Rectangle(0, 0, Textures.filler_sprite.Width * 4, (int)BarsInformations.thirst_percentage), BarsInformations.thirst_color, 3.138997f, new Vector2(0.5f, 0.5f), 1f, SpriteEffects.None, 1f);
         }
     }
 }
