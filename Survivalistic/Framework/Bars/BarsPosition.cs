@@ -64,6 +64,8 @@ namespace Survivalistic.Framework.Bars
                 case "custom":
                     barPosition.X = ModEntry.config.bars_custom_x;
                     barPosition.X = ModEntry.config.bars_custom_y;
+                    if (barPosition.X >= sizeUI.X / 2) BarsDatabase.right_side = true;
+                    else BarsDatabase.right_side = false;
                     break;
             }
         }
