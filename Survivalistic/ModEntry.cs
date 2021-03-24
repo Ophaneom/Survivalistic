@@ -26,6 +26,11 @@ namespace Survivalistic
             helper.Events.Multiplayer.PeerConnected += OnPlayerConnected;
             helper.Events.Multiplayer.ModMessageReceived += OnMessageReceived;
             helper.Events.Display.RenderingHud += Renderer.OnRenderingHud;
+
+            helper.ConsoleCommands.Add("survivalistic_feed", "Feeds a player.\nUsage: survivalistic_feed 'player_name'", Commands.Feed);
+            helper.ConsoleCommands.Add("survivalistic_hydrate", "Hydrates a player.\nUsage: survivalistic_hydrate 'player_name'", Commands.Hydrate);
+            helper.ConsoleCommands.Add("survivalistic_fullness", "Set full status to a player.\nUsage: survivalistic_fullness 'player_name'", Commands.Fullness);
+            helper.ConsoleCommands.Add("survivalistic_forcesync", "Forces the synchronization in multiplayer to all players.\nUsage: survivalistic_forcesync", Commands.Fullness);
         }
 
         private void OnUpdate(object sender, UpdateTickedEventArgs e)

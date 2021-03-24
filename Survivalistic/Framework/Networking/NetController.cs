@@ -78,6 +78,7 @@ namespace Survivalistic.Framework.Networking
                 ModEntry.data = e.ReadAs<Data>();
                 BarsUpdate.CalculatePercentage();
                 Debugger.Log("Received important data from host.", "Trace");
+                BarsUpdate.CalculatePercentage();
             }
 
             if (Context.IsMainPlayer && e.FromModID == Manifest.UniqueID && e.Type == "SaveDataToHost")

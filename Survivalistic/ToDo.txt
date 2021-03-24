@@ -1,5 +1,5 @@
 ﻿Fix multiplayer problems
 Add low hunger and thirst messages
 Add penalty system
-Add commands
+Add multi-language support
 Finish databases
