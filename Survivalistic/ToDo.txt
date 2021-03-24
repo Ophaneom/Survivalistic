@@ -1,4 +1,3 @@
 ﻿Fix multiplayer problems
-Add penalty system
 Add multi-language support
 Finish databases
