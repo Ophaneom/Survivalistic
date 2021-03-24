@@ -1,3 +1,4 @@
 ﻿Fix multiplayer problems
 Fix tool use bug
+Add numerical informations on bars
 Finish databases
