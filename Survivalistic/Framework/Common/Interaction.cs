@@ -5,7 +5,6 @@ using StardewModdingAPI;
 using StardewValley;
 using Survivalistic.Framework.Bars;
 using Survivalistic.Framework.Databases;
-using Survivalistic.Framework.Networking;
 
 namespace Survivalistic.Framework.Common
 {
@@ -18,8 +17,6 @@ namespace Survivalistic.Framework.Common
         private static string tool_used_name;
 
         private static bool getting_tick_information = true;
-
-        private static IModHelper Helper = ModEntry.instance.Helper;
 
         public static void EatingCheck()
         {

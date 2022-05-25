@@ -65,7 +65,6 @@
     <Compile Include="Framework\Networking\NetController.cs" />
     <Compile Include="Framework\Common\Textures.cs" />
     <Compile Include="Framework\Rendering\Renderer.cs" />
-    <Compile Include="Framework\Saving\SaveController.cs" />
     <Compile Include="ModEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
