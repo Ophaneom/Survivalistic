@@ -11,6 +11,8 @@ namespace Survivalistic.Framework.Networking
         private static IModHelper Helper = ModEntry.instance.Helper;
         private static IManifest Manifest = ModEntry.instance.ModManifest;
 
+        public static bool firstLoad;
+
         public static void SyncSpecificPlayer(long player_id)
         {
             if (Context.IsMainPlayer)
@@ -54,8 +56,15 @@ namespace Survivalistic.Framework.Networking
             if (Context.IsMainPlayer)
             {
                 Debugger.Log($"Saving host data.", "Trace");
+
+                Data _data = Helper.Data.ReadSaveData<Data>($"{Game1.player.UniqueMultiplayerID}") ?? new Data();
+                if (!firstLoad)
+                {
+                    ModEntry.data = _data;
+                    firstLoad = true;
+                }
                 Helper.Data.WriteSaveData($"{Game1.player.UniqueMultiplayerID}", ModEntry.data);
-                ModEntry.data = Helper.Data.ReadSaveData<Data>($"{Game1.player.UniqueMultiplayerID}") ?? new Data();
+
                 BarsUpdate.CalculatePercentage();
             }
             else

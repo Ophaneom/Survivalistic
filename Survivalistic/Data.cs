@@ -10,5 +10,10 @@
 
         public float initial_hunger { get; set; } = 100;
         public float initial_thirst { get; set; } = 100;
+
+        public int actual_day { get; set; } = 0;
+        public int actual_season { get; set; } = 0;
+        public int actual_year { get; set; } = 0;
+        public int actual_tick { get; set; } = 0;
     }
 }

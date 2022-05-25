@@ -1,9 +1,11 @@
-﻿using StardewModdingAPI;
+﻿using StardewValley;
+using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using Survivalistic.Framework.Bars;
 using Survivalistic.Framework.Common;
 using Survivalistic.Framework.Networking;
 using Survivalistic.Framework.Rendering;
+using Survivalistic.Framework.Saving;
 
 namespace Survivalistic
 {
@@ -26,6 +28,8 @@ namespace Survivalistic
             helper.Events.Multiplayer.PeerConnected += OnPlayerConnected;
             helper.Events.Multiplayer.ModMessageReceived += OnMessageReceived;
             helper.Events.Display.RenderingHud += Renderer.OnRenderingHud;
+            helper.Events.GameLoop.DayStarted += OnDayStarted;
+            helper.Events.GameLoop.ReturnedToTitle += OnReturnToTitle;
 
             helper.ConsoleCommands.Add("survivalistic_feed", "Feeds a player.\nUsage: survivalistic_feed 'player_name'", Commands.Feed);
             helper.ConsoleCommands.Add("survivalistic_hydrate", "Hydrates a player.\nUsage: survivalistic_hydrate 'player_name'", Commands.Hydrate);
@@ -33,11 +37,23 @@ namespace Survivalistic
             helper.ConsoleCommands.Add("survivalistic_forcesync", "Forces the synchronization in multiplayer to all players.\nUsage: survivalistic_forcesync", Commands.ForceSync);
         }
 
+        private void OnDayStarted(object sender, DayStartedEventArgs e)
+        {
+            //Interaction.Awake();
+            //NetController.Sync();
+        }
+
+        private void OnReturnToTitle(object sender, ReturnedToTitleEventArgs e)
+        {
+            NetController.firstLoad = false;
+        }
+
         private void OnUpdate(object sender, UpdateTickedEventArgs e)
         {
             Interaction.EatingCheck();
             Interaction.UsingToolCheck();
             BarsPosition.SetBarsPosition();
+            Interaction.UpdateTickInformation();
         }
 
         private void OnTimeChanged(object sender, TimeChangedEventArgs e)
@@ -51,9 +67,11 @@ namespace Survivalistic
 
         private void OnSaveLoaded(object sender, SaveLoadedEventArgs e)
         {
-
+            if (!NetController.firstLoad) NetController.Sync();
+            Interaction.Awake();
             NetController.Sync();
             BarsPosition.SetBarsPosition();
+            Interaction.ReceiveAwakeInfos();
             BarsUpdate.CalculatePercentage();
             BarsWarnings.VerifyStatus();
         }

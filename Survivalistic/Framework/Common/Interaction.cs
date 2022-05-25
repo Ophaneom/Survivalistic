@@ -5,6 +5,7 @@ using StardewModdingAPI;
 using StardewValley;
 using Survivalistic.Framework.Bars;
 using Survivalistic.Framework.Databases;
+using Survivalistic.Framework.Networking;
 
 namespace Survivalistic.Framework.Common
 {
@@ -15,6 +16,10 @@ namespace Survivalistic.Framework.Common
 
         private static string item_eated_name;
         private static string tool_used_name;
+
+        private static bool getting_tick_information = true;
+
+        private static IModHelper Helper = ModEntry.instance.Helper;
 
         public static void EatingCheck()
         {
@@ -88,6 +93,44 @@ namespace Survivalistic.Framework.Common
                 Penalty.VerifyPenalty();
                 BarsInformations.NormalizeStatus();
                 BarsWarnings.VerifyStatus();
+            }
+        }
+
+        public static void Awake()
+        {
+            ModEntry.data.initial_hunger = ModEntry.data.actual_hunger;
+            ModEntry.data.initial_thirst = ModEntry.data.actual_thirst;
+            ModEntry.data.actual_day = Game1.Date.DayOfMonth;
+            ModEntry.data.actual_season = Game1.Date.SeasonIndex;
+            ModEntry.data.actual_year = Game1.Date.Year;
+        }
+
+        public static void ReceiveAwakeInfos()
+        {
+            if (Game1.IsMultiplayer)
+            {
+                if (ModEntry.data.actual_day != Game1.Date.DayOfMonth ||
+                        ModEntry.data.actual_season != Game1.Date.SeasonIndex ||
+                        ModEntry.data.actual_year != Game1.Date.Year ||
+                        ModEntry.data.actual_tick < Game1.ticks)
+                {
+                    ModEntry.data.actual_hunger = ModEntry.data.initial_hunger;
+                    ModEntry.data.actual_thirst = ModEntry.data.initial_thirst;
+                }
+            }
+            else
+            {
+                ModEntry.data.actual_hunger = ModEntry.data.initial_hunger;
+                ModEntry.data.actual_thirst = ModEntry.data.initial_thirst;
+            }
+            getting_tick_information = false;
+        }
+
+        public static void UpdateTickInformation()
+        {
+            if (!getting_tick_information)
+            {
+                ModEntry.data.actual_tick = Game1.ticks;
             }
         }
     }
