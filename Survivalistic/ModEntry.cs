@@ -45,6 +45,7 @@ namespace Survivalistic
             Interaction.UsingToolCheck();
             BarsPosition.SetBarsPosition();
             Interaction.UpdateTickInformation();
+            Penalty.VerifyPassOut();
         }
 
         private void OnTimeChanged(object sender, TimeChangedEventArgs e)

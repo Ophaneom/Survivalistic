@@ -75,9 +75,9 @@ namespace Survivalistic.Framework.Common
                 Buff fainting_buff = Game1.buffsDisplay.otherBuffs.Find(i => i.source == "SURV_Fainting");
                 if (fainting_buff == null)
                 {
-                    fainting_buff = new Buff("You're fainting!", 0, "SURV_Fainting", 26)
+                    fainting_buff = new Buff("You're passing out!", 0, "SURV_Fainting", 26)
                     {
-                        displaySource = "Fainting"
+                        displaySource = "Passing Out"
                     };
                     Game1.buffsDisplay.addOtherBuff(fainting_buff);
                 }

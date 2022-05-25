@@ -12,7 +12,7 @@ namespace Survivalistic.Framework.Rendering
     {
         public static void OnRenderingHud(object sender, RenderingHudEventArgs e)
         {
-            if (!Context.IsWorldReady) return;
+            if (!Context.IsWorldReady || Game1.CurrentEvent != null) return;
 
             CheckMouseHovering();
 

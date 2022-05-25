@@ -1,4 +1,2 @@
-﻿Fix multiplayer problems
-Add multi-language support
-Add buff system
+﻿Add multi-language support
 Finish databases

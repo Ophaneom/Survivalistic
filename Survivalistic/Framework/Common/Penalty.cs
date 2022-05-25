@@ -1,11 +1,14 @@
 ﻿using StardewModdingAPI;
 using StardewValley;
 using Survivalistic.Framework.Bars;
+using Survivalistic.Framework.Networking;
 
 namespace Survivalistic.Framework.Common
 {
     public class Penalty
     {
+        private static bool alreadyCheckedFaint;
+
         public static void VerifyPenalty()
         {
             if (!Context.IsWorldReady) return;
@@ -52,6 +55,23 @@ namespace Survivalistic.Framework.Common
                 Game1.player.checkForExhaustion(Game1.player.Stamina);
                 Buffs.SetBuff("Fainting");
             }
+        }
+
+        public static void VerifyPassOut()
+        {
+            if (Game1.player.health <= 0)
+            {
+                if (!alreadyCheckedFaint)
+                {
+                    ModEntry.data.actual_hunger = ModEntry.data.max_hunger / 3;
+                    ModEntry.data.actual_thirst = ModEntry.data.max_thirst / 2;
+
+                    NetController.Sync();
+
+                    alreadyCheckedFaint = true;
+                }
+            }
+            else alreadyCheckedFaint = false;
         }
     }
 }
