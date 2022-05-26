@@ -73,8 +73,8 @@ namespace Survivalistic.Framework.Common
                 float hunger_diff = ModEntry.data.actual_hunger - last_hunger;
                 float thirst_diff = ModEntry.data.actual_thirst - last_thirst;
 
-                if (hunger_diff > 0) Game1.addHUDMessage(new HUDMessage($"+{(int)hunger_diff} Hunger", 4));
-                if (thirst_diff > 0) Game1.addHUDMessage(new HUDMessage($"+{(int)thirst_diff} Thirst", 4));
+                if (hunger_diff > 0) Game1.addHUDMessage(new HUDMessage($"+{(int)hunger_diff} Feeded", 4));
+                if (thirst_diff > 0) Game1.addHUDMessage(new HUDMessage($"+{(int)thirst_diff} Hydrated", 4));
             }
         }
 

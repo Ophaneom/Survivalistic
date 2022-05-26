@@ -55,7 +55,7 @@ namespace Survivalistic.Framework.Networking
         {
             if (Context.IsMainPlayer)
             {
-                Debugger.Log($"Saving host data.", "Trace");
+                if (Game1.IsMultiplayer) Debugger.Log($"Saving host data.", "Trace");
 
                 Data _data = Helper.Data.ReadSaveData<Data>($"{Game1.player.UniqueMultiplayerID}") ?? new Data();
                 if (!firstLoad)
