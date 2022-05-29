@@ -1,6 +1,7 @@
 ﻿using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using System.Collections.Generic;
 using Survivalistic.Framework.Common;
 using Survivalistic.Framework.Bars;
 using Survivalistic.Framework.Databases;
@@ -18,6 +19,15 @@ namespace Survivalistic.Framework.Networking
         {
             if (Context.IsMainPlayer)
             {
+                Dictionary<string, string> _foodsDatabase = Foods.foodDatabase;
+                Debugger.Log($"Sending foods database to farmhand {player_id}.", "Trace");
+                Helper.Multiplayer.SendMessage(
+                    message: _foodsDatabase,
+                    messageType: "SaveDatabaseFromHost",
+                    modIDs: new[] { Manifest.UniqueID },
+                    playerIDs: new[] { player_id }
+                );
+
                 Data _data = Helper.Data.ReadSaveData<Data>($"{player_id}") ?? new Data();
                 Helper.Data.WriteSaveData($"{player_id}", _data);
 
@@ -89,6 +99,11 @@ namespace Survivalistic.Framework.Networking
                 BarsUpdate.CalculatePercentage();
                 Debugger.Log("Received important data from host.", "Trace");
                 BarsUpdate.CalculatePercentage();
+            }
+
+            if (!Context.IsMainPlayer && e.FromModID == Manifest.UniqueID && e.Type == "SaveDatabaseFromHost")
+            {
+                Foods.foodDatabase = e.ReadAs <Dictionary<string, string>>();
             }
 
             if (Context.IsMainPlayer && e.FromModID == Manifest.UniqueID && e.Type == "SaveDataToHost")
