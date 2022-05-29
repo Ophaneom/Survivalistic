@@ -3,6 +3,7 @@ using StardewModdingAPI.Events;
 using StardewValley;
 using Survivalistic.Framework.Common;
 using Survivalistic.Framework.Bars;
+using Survivalistic.Framework.Databases;
 
 namespace Survivalistic.Framework.Networking
 {

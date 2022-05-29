@@ -4,6 +4,8 @@ using Survivalistic.Framework.Bars;
 using Survivalistic.Framework.Common;
 using Survivalistic.Framework.Networking;
 using Survivalistic.Framework.Rendering;
+using Survivalistic.Framework.Databases;
+using System.Collections.Generic;
 
 namespace Survivalistic
 {
@@ -32,6 +34,8 @@ namespace Survivalistic
             helper.ConsoleCommands.Add("survivalistic_hydrate", "Hydrates a player.\nUsage: survivalistic_hydrate 'player_name'", Commands.Hydrate);
             helper.ConsoleCommands.Add("survivalistic_fullness", "Set full status to a player.\nUsage: survivalistic_fullness 'player_name'", Commands.Fullness);
             helper.ConsoleCommands.Add("survivalistic_forcesync", "Forces the synchronization in multiplayer to all players.\nUsage: survivalistic_forcesync", Commands.ForceSync);
+
+            DBController.LoadDatabases();
         }
 
         private void OnReturnToTitle(object sender, ReturnedToTitleEventArgs e)

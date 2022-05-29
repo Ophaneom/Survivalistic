@@ -60,6 +60,8 @@
     <Compile Include="Framework\Common\Interaction.cs" />
     <Compile Include="Framework\Common\Debugger.cs" />
     <Compile Include="Framework\Common\Penalty.cs" />
+    <Compile Include="Framework\Databases\DBController.cs" />
+    <Compile Include="Framework\Databases\EdiblesDB.cs" />
     <Compile Include="Framework\Databases\Foods.cs" />
     <Compile Include="Framework\Databases\Tools.cs" />
     <Compile Include="Framework\Networking\NetController.cs" />

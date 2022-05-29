@@ -58,7 +58,7 @@ namespace Survivalistic.Framework.Common
 
         private static void IncreaseStatus(string food_eated)
         {
-            if (Foods.GetFoodDatabase().TryGetValue(food_eated, out string food_status_string))
+            if (Foods.foodDatabase.TryGetValue(food_eated, out string food_status_string))
             {
                 List<string> food_status = food_status_string.Split('/').ToList();
 

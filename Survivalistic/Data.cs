@@ -1,4 +1,6 @@
-﻿namespace Survivalistic
+﻿using System.Collections.Generic;
+
+namespace Survivalistic
 {
     public class Data
     {
@@ -15,5 +17,7 @@
         public int actual_season { get; set; } = 0;
         public int actual_year { get; set; } = 0;
         public int actual_tick { get; set; } = 0;
+
+        public static Dictionary<string, string> foodDatabase { get; set; }
     }
 }
