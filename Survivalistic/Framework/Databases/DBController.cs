@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using StardewModdingAPI;
 
@@ -25,7 +25,15 @@ namespace Survivalistic.Framework.Databases
                 {
                     for (var i = 0; i < _actualModDatabase.edibles.Length / 2; i++)
                     {
-                        Foods.foodDatabase.Add(_actualModDatabase.edibles[i, 0], _actualModDatabase.edibles[i, 1]);
+                        try {
+                            Foods.foodDatabase.Add(_actualModDatabase.edibles[i, 0], _actualModDatabase.edibles[i, 1]);
+                        } catch (System.ArgumentException exception)
+						{
+                            ModEntry.instance.Monitor.Log(_mod.Manifest.UniqueID + "_edibles Attempted to add duplicate entry to EdiblesDB", LogLevel.Trace);
+                            ModEntry.instance.Monitor.Log(exception.Message, LogLevel.Trace);
+                            ModEntry.instance.Monitor.Log(exception.StackTrace, LogLevel.Trace);
+						}
+                        
                     }
                 }
             }
