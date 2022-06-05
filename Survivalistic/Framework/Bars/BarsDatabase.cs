@@ -2,8 +2,8 @@
 {
     public class BarsDatabase
     {
-        public static float hunger_velocity = 0.5f;
-        public static float thirst_velocity = 1f;
+        public static float hunger_velocity = ModEntry.config.hunger_multiplier;
+        public static float thirst_velocity = ModEntry.config.thirst_multiplier;
 
         public static bool render_numerical_hunger = false;
         public static bool render_numerical_thirst = false;
