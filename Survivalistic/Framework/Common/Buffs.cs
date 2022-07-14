@@ -47,7 +47,7 @@ namespace Survivalistic.Framework.Common
                 Buff hunger_buff = Game1.buffsDisplay.otherBuffs.Find(i => i.source == "SURV_Hunger");
                 if (hunger_buff == null)
                 {
-                    hunger_buff = new Buff("You're hungry!", 0, "SURV_Hunger", 6)
+                    hunger_buff = new Buff("You are hungry!", 0, "SURV_Hunger", 6)
                     {
                         displaySource = "Hunger"
                     };
@@ -61,7 +61,7 @@ namespace Survivalistic.Framework.Common
                 Buff thirsty_buff = Game1.buffsDisplay.otherBuffs.Find(i => i.source == "SURV_Thirsty");
                 if (thirsty_buff == null)
                 {
-                    thirsty_buff = new Buff("You're thirsty!", 0, "SURV_Thirsty", 7)
+                    thirsty_buff = new Buff("You are thirsty!", 0, "SURV_Thirsty", 7)
                     {
                         displaySource = "Thirsty"
                     };
@@ -75,7 +75,7 @@ namespace Survivalistic.Framework.Common
                 Buff fainting_buff = Game1.buffsDisplay.otherBuffs.Find(i => i.source == "SURV_Fainting");
                 if (fainting_buff == null)
                 {
-                    fainting_buff = new Buff("You're passing out!", 0, "SURV_Fainting", 26)
+                    fainting_buff = new Buff("You are passing out!", 0, "SURV_Fainting", 26)
                     {
                         displaySource = "Passing Out"
                     };

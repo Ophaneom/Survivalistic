@@ -25,7 +25,7 @@ namespace Survivalistic.Framework.Bars
                 if (!active_hunger_warning)
                 {
                     active_hunger_warning = true;
-                    Game1.addHUDMessage(new HUDMessage($"You're hunger!", 2));
+                    Game1.addHUDMessage(new HUDMessage($"You are hungry!", 2));
                 }
             }
             else active_hunger_warning = false;
@@ -35,7 +35,7 @@ namespace Survivalistic.Framework.Bars
                 if (!active_thirst_warning)
                 {
                     active_thirst_warning = true;
-                    Game1.addHUDMessage(new HUDMessage($"You're thirsty!", 2));
+                    Game1.addHUDMessage(new HUDMessage($"You are thirsty!", 2));
                 }
             }
             else active_thirst_warning = false;
