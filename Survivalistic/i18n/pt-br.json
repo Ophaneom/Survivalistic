@@ -8,7 +8,7 @@
 
   // Info debuffs.
   "pass-out": "Você desmaiou. Coma ou beba algo!",
-  "pass-out-source": "Exaustão corporal",
+  "pass-out-source": "Exaustao corporal",
 
   // Info buffs.
   "buff.fullness.description": "Voce esta cheio e se sentindo muito poderoso!",
