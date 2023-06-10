@@ -3,7 +3,7 @@ using StardewValley;
 using Survivalistic.Framework.Bars;
 using Survivalistic.Framework.Networking;
 
-namespace Survivalistic.Framework.Common
+namespace Survivalistic.Framework.Common.Affection
 {
     public class Penalty
     {
@@ -21,10 +21,10 @@ namespace Survivalistic.Framework.Common
             else if (ModEntry.data.actual_thirst <= 0) BarsDatabase.tool_use_multiplier = 2.5f;
             else BarsDatabase.tool_use_multiplier = 1;
 
-            DealDamage();
+            CheckValuesAndIfReadyDealDamage();
         }
 
-        public static void DealDamage()
+        public static void CheckValuesAndIfReadyDealDamage()
         {
             if (!Context.IsWorldReady) return;
             bool _applying_health_damage = false;
