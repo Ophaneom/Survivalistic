@@ -11,10 +11,6 @@ namespace Survivalistic.Framework.Rendering
 {
     public class Renderer
     {
-        private static Color specialAbilityTextColor = ModEntry.config.wof_colored_bar ? 
-                                                       new Color(148, 120, 188) : 
-                                                       Color.White;
-
         public static void OnRenderingHud(object sender, RenderingHudEventArgs e)
         {
             if (!Context.IsWorldReady || Game1.CurrentEvent != null) return;
@@ -39,7 +35,7 @@ namespace Survivalistic.Framework.Rendering
                     Game1.dialogueFont,
                     information,
                     new Vector2(BarsPosition.barPosition.X + text_position.X, BarsPosition.barPosition.Y - 240 + ((Textures.HungerSprite.Height * 4) / 4) + 8),
-                    BarsInformations.hunger_color,
+                    new Color(255, 255, 255),
                     0f,
                     new Vector2(text_position.Y, 0),
                     1,
@@ -59,7 +55,7 @@ namespace Survivalistic.Framework.Rendering
                     Game1.dialogueFont,
                     information,
                     new Vector2(BarsPosition.barPosition.X - 60 + text_position.X, BarsPosition.barPosition.Y - 240 + ((Textures.HungerSprite.Height * 4) / 4) + 8),
-                    BarsInformations.thirst_color,
+                    new Color(255, 255, 255),
                     0f,
                     new Vector2(text_position.Y, 0),
                     1,

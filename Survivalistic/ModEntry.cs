@@ -216,24 +216,6 @@ namespace Survivalistic
                     tooltip: () => Helper.Translation.Get("compatibility-settings-des")
                 );
 
-                // General compatibility setting.
-                configMenu.AddBoolOption(
-                    mod: ModManifest,
-                    name: () => Helper.Translation.Get("walk-of-life-support"),
-                    tooltip: () => Helper.Translation.Get("walk-of-life-support-des"),
-                    getValue: () => config.walk_of_life_support,
-                    setValue: value => config.walk_of_life_support = value
-                );
-
-                // Colored bar.
-                configMenu.AddBoolOption(
-                    mod: ModManifest,
-                    name: () => Helper.Translation.Get("wof-colored-special"),
-                    tooltip: () => Helper.Translation.Get("wof-colored-special-des"),
-                    getValue: () => config.wof_colored_bar,
-                    setValue: value => config.wof_colored_bar = value
-                );
-
                 // Food support bar.
                 configMenu.AddBoolOption(
                     mod: ModManifest,
