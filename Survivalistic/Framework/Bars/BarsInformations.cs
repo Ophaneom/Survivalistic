@@ -5,14 +5,8 @@ namespace Survivalistic.Framework.Bars
 {
     public class BarsInformations
     {
-        /// <summary>
-        /// Значение голода умноженное на шаблон высоты. Используется для отрисовки шкалы голода.
-        /// </summary>
         public static float hunger_percentage;
 
-        /// <summary>
-        /// Значение жажды умноженное на шаблон высоты. Используется для отрисовки шкалы жажды.
-        /// </summary>
         public static float thirst_percentage;
 
         public static Color hunger_color = new Color(1, .7f, 0);
